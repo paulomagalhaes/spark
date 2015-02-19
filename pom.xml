@@ -151,13 +151,6 @@
     <jline.groupid>org.scala-lang</jline.groupid>
   </properties>
 
-  <extensions>
-      <extension>
-        <groupId>org.springframework.build</groupId>
-        <artifactId>aws-maven</artifactId>
-        <version>5.0.0.RELEASE</version>
-      </extension>
-  </extensions>
   <distributionManagement>
     <repository>
       <id>aws-release</id>
@@ -871,6 +864,14 @@
   </dependencyManagement>
 
   <build>
+    <extensions>
+      <extension>
+        <groupId>org.springframework.build</groupId>
+        <artifactId>aws-maven</artifactId>
+        <version>5.0.0.RELEASE</version>
+      </extension>
+    </extensions>
+
     <pluginManagement>
       <plugins>
         <plugin>
