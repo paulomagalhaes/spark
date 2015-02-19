@@ -151,18 +151,6 @@
     <jline.groupid>org.scala-lang</jline.groupid>
   </properties>
 
-  <distributionManagement>
-    <repository>
-      <id>aws-release</id>
-      <name>AWS Release Repository</name>
-      <url>s3://uberdata-repo/release</url>
-    </repository>
-    <snapshotRepository>
-      <id>aws-snapshot</id>
-      <name>AWS Snapshot Repository</name>
-      <url>s3://uberdata-repo/snapshot</url>
-    </snapshotRepository>
-  </distributionManagement>
   <repositories>
     <repository>
       <id>central</id>
@@ -1199,6 +1187,18 @@
       </plugin>
     </plugins>
   </build>
+  <distributionManagement>
+    <repository>
+      <id>aws-release</id>
+      <name>AWS Release Repository</name>
+      <url>s3://uberdata-repo/release</url>
+    </repository>
+    <snapshotRepository>
+      <id>aws-snapshot</id>
+      <name>AWS Snapshot Repository</name>
+      <url>s3://uberdata-repo/snapshot</url>
+    </snapshotRepository>
+  </distributionManagement>
 
   <profiles>
 
