@@ -26,7 +26,7 @@
   </parent>
   <groupId>org.apache.spark</groupId>
   <artifactId>spark-parent</artifactId>
-  <version>1.2.0</version>
+  <version>1.2.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Spark Project Parent POM</name>
   <url>http://spark.apache.org/</url>
@@ -151,6 +151,18 @@
     <jline.groupid>org.scala-lang</jline.groupid>
   </properties>
 
+  <distributionManagement>
+    <repository>
+      <id>aws-release</id>
+      <name>AWS Release Repository</name>
+      <url>s3://uberdata-repo/release</url>
+    </repository>
+    <snapshotRepository>
+      <id>aws-snapshot</id>
+      <name>AWS Snapshot Repository</name>
+      <url>s3://uberdata-repo/snapshot</url>
+    </snapshotRepository>
+  </distributionManagement>
   <repositories>
     <repository>
       <id>central</id>
@@ -278,8 +290,8 @@
       <artifactId>unused</artifactId>
       <version>1.0.0</version>
     </dependency>
-    <!-- 
-         This depndency has been added to provided scope as it is needed for excuting build
+    <!--
+         This depndency has been added to provided scope as it is needed for executing build
          specific groovy scripts using gmaven+ and not required for downstream project building
          with spark.
     -->
@@ -852,6 +864,14 @@
   </dependencyManagement>
 
   <build>
+    <extensions>
+      <extension>
+        <groupId>org.springframework.build</groupId>
+        <artifactId>aws-maven</artifactId>
+        <version>5.0.0.RELEASE</version>
+      </extension>
+    </extensions>
+
     <pluginManagement>
       <plugins>
         <plugin>
@@ -970,7 +990,7 @@
             <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
             <junitxml>.</junitxml>
             <filereports>SparkTestSuite.txt</filereports>
-            <argLine>-Xmx3g -XX:MaxPermSize=${MaxPermGen} -XX:ReservedCodeCacheSize=512m</argLine>
+            <argLine>-ea -Xmx3g -XX:MaxPermSize=${MaxPermGen} -XX:ReservedCodeCacheSize=512m</argLine>
             <stderr/>
             <systemProperties>
               <java.awt.headless>true</java.awt.headless>
@@ -1033,6 +1053,9 @@
               </fileset>
               <fileset>
                 <directory>checkpoint</directory>
+              </fileset>
+              <fileset>
+                <directory>lib_managed</directory>
               </fileset>
             </filesets>
           </configuration>
