@@ -171,12 +171,12 @@
     <repository>
       <id>aws-release</id>
       <name>AWS Release Repository</name>
-      <url>s3://uberdata-repo/release</url>
+      <url>s3://sparknotebook-repo/release</url>
     </repository>
     <snapshotRepository>
       <id>aws-snapshot</id>
       <name>AWS Snapshot Repository</name>
-      <url>s3://uberdata-repo/snapshot</url>
+      <url>s3://sparknotebook-repo/snapshot</url>
     </snapshotRepository>
   </distributionManagement>
   <profiles>
