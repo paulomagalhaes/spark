@@ -75,7 +75,14 @@
     </snapshotRepository>
   </distributionManagement> 
  <build>
-    <outputDirectory>target/scala-${scala.binary.version}/classes</outputDirectory>
+    <extensions>
+      <extension>
+        <groupId>org.springframework.build</groupId>
+        <artifactId>aws-maven</artifactId>
+        <version>5.0.0.RELEASE</version>
+      </extension>
+    </extensions>  
+  <outputDirectory>target/scala-${scala.binary.version}/classes</outputDirectory>
     <testOutputDirectory>target/scala-${scala.binary.version}/test-classes</testOutputDirectory>
     <plugins>
       <plugin>
