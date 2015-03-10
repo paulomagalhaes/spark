@@ -62,7 +62,19 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <build>
+ <distributionManagement>
+    <repository>
+      <id>aws-release</id>
+      <name>AWS Release Repository</name>
+      <url>s3://sparknotebook-repo/release</url>
+    </repository>
+    <snapshotRepository>
+      <id>aws-snapshot</id>
+      <name>AWS Snapshot Repository</name>
+      <url>s3://sparknotebook-repo/snapshot</url>
+    </snapshotRepository>
+  </distributionManagement> 
+ <build>
     <outputDirectory>target/scala-${scala.binary.version}/classes</outputDirectory>
     <testOutputDirectory>target/scala-${scala.binary.version}/test-classes</testOutputDirectory>
     <plugins>
